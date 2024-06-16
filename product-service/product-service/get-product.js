@@ -8,8 +8,8 @@ exports.handler = async (event) => {
 
     const id = event.pathParameters && event.pathParameters.id;
     const headers = {
-        "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
-        "Access-Control-Allow-Methods": '*',
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": 'GET,POST,OPTIONS',
         "Access-Control-Allow-Origin": '*',
         "Content-Type": "application/json"
     };
@@ -28,7 +28,7 @@ exports.handler = async (event) => {
         return {
             statusCode: 200,
             headers: headers,
-            body: JSON.stringify({ product }),
+            body: JSON.stringify(product),
         };
     } else {
         return {
