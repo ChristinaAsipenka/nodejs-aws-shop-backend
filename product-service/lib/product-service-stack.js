@@ -29,12 +29,6 @@ class ProductServiceStack extends Stack {
     const api = new apigateway.LambdaRestApi(this, 'ProductServiceApi', {
       handler: getProductsList,
       proxy: false,
-      defaultCorsPreflightOptions: {
-        allowOrigins: apigateway.Cors.ALL_ORIGINS,
-        allowMethods: apigateway.Cors.ALL_METHODS,
-        allowHeaders: apigateway.Cors.DEFAULT_HEADERS
-      }
-
     });
 
     const productsResource = api.root.addResource('products');
