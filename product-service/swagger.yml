@@ -22,14 +22,24 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Product'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
         '500':
           description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+      x-amazon-apigateway-integration:
+        uri: arn:aws:apigateway:{region}:lambda:path/2015-03-31/functions/arn:aws:lambda:{region}:{account_id}:function:getProductsList/invocations
+        httpMethod: POST
+        type: aws_proxy
+        responses: {}
   /product/{id}:
     get:
       summary: Get product by ID
@@ -47,10 +57,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  product:
-                    $ref: '#/components/schemas/Product'
+                $ref: '#/components/schemas/Product'
         '400':
           description: ID parameter is required
           content:
@@ -73,6 +80,19 @@ paths:
                     example: Product not found
         '500':
           description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+      x-amazon-apigateway-integration:
+        uri: arn:aws:apigateway:{region}:lambda:path/2015-03-31/functions/arn:aws:lambda:{region}:{account_id}:function:getProduct/invocations
+        httpMethod: POST
+        type: aws_proxy
+        responses: {}
 components:
   schemas:
     Product:
@@ -81,9 +101,12 @@ components:
         id:
           type: string
           example: "1"
-        name:
+        title:
           type: string
           example: "Product_1"
         price:
+          type: number
+          example: 10
+        description:
           type: string
-          example: "10"
+          example: "Short Product Description1"
