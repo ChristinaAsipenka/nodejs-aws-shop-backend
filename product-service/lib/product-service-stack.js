@@ -1,4 +1,4 @@
-const { Stack, Duration } = require('aws-cdk-lib');
+const { Stack, Duration, CfnOutput } = require('aws-cdk-lib');
 const lambda = require('aws-cdk-lib/aws-lambda');
 const apigateway = require('aws-cdk-lib/aws-apigateway');
 
@@ -32,6 +32,17 @@ class ProductServiceStack extends Stack {
       }
     });
 
+    // Export Lambda ARNs
+    new CfnOutput(this, 'GetProductsListFunctionArn', {
+      value: getProductsList.functionArn,
+      exportName: 'GetProductsListFunctionArn',
+    });
+
+    new CfnOutput(this, 'GetProductFunctionArn', {
+      value: getProduct.functionArn,
+      exportName: 'GetProductFunctionArn',
+    });
+
     const api = new apigateway.LambdaRestApi(this, 'ProductServiceApi', {
       handler: getProductsList,
       proxy: false,
@@ -46,4 +57,4 @@ class ProductServiceStack extends Stack {
   }
 }
 
-module.exports = { ProductServiceStack }
+module.exports = { ProductServiceStack };
