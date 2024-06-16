@@ -17,7 +17,7 @@ class ProductServiceStack extends Stack {
     const getProductsList = new lambda.Function(this, 'getProductsList', {
       runtime: lambda.Runtime.NODEJS_20_X,
       code: lambda.Code.fromAsset('product-service'),
-      handler: 'getProducts.handler',
+      handler: 'get-products.handler',
       environment: {
         STAGE: stage,
       }
@@ -26,7 +26,7 @@ class ProductServiceStack extends Stack {
     const getProduct = new lambda.Function(this, 'getProduct', {
       runtime: lambda.Runtime.NODEJS_20_X,
       code: lambda.Code.fromAsset('product-service'),
-      handler: 'getProduct.handler',
+      handler: 'get-product.handler',
       environment: {
         STAGE: stage,
       }

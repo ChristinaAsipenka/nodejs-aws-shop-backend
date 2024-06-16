@@ -4,11 +4,11 @@ info:
   description: This is an API for managing products.
   version: 1.0.0
 servers:
-  - url: https://y2uktmqyoc.execute-api.eu-west-1.amazonaws.com/prod
+  - url: https://1pcdcu2oob.execute-api.eu-west-1.amazonaws.com/prod
     description: Development server
     variables:
       restapi_id:
-        default: y2uktmqyoc
+        default: 1pcdcu2oob
       region:
         default: eu-west-1
 paths:

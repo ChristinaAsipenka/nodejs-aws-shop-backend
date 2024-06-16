@@ -1,14 +1,12 @@
 const products = require('./products');
 
-// Function to find a product by id
 const getProductById = (id) => {
     return products.find(product => product.id === id);
 };
 
 exports.handler = async (event) => {
 
-    // Extract id from query string parameters or event body
-    const id = event.pathParameters.id;
+    const id = event.pathParameters && event.pathParameters.id;
     const headers = {
         "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
         "Access-Control-Allow-Methods": '*',
