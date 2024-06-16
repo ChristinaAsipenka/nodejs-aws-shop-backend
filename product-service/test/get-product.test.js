@@ -24,12 +24,12 @@ describe('handler', () => {
     });
 
     test('should return 200 with product if found', async () => {
-        const mockProduct = { id: 'existingId', name: 'Test Product' };
+        const mockProduct = { id: 'existingId', title: 'Test Product' };
         jest.spyOn(products, 'find').mockReturnValueOnce(mockProduct);
 
         mockEvent.pathParameters.id = 'existingId';
         const response = await handler(mockEvent);
         expect(response.statusCode).toBe(200);
-        expect(JSON.parse(response.body).product).toEqual(mockProduct);
+        expect(JSON.parse(response.body)).toEqual(mockProduct);
     });
 });
