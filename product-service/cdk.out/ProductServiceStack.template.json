@@ -41,7 +41,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "b94c6360ebaf1e1162eab06a84eec526e62afd9ea71af53596420414730ff9cb.zip"
+     "S3Key": "839fbda59db47c5b0f10d31f1f2e6c73ed24fd19934ab1f93db7061e6b2b9df4.zip"
     },
     "Handler": "get-products.handler",
     "Role": {
@@ -57,7 +57,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "ProductServiceStack/getProductsList/Resource",
-    "aws:asset:path": "asset.b94c6360ebaf1e1162eab06a84eec526e62afd9ea71af53596420414730ff9cb",
+    "aws:asset:path": "asset.839fbda59db47c5b0f10d31f1f2e6c73ed24fd19934ab1f93db7061e6b2b9df4",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -103,7 +103,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "b94c6360ebaf1e1162eab06a84eec526e62afd9ea71af53596420414730ff9cb.zip"
+     "S3Key": "839fbda59db47c5b0f10d31f1f2e6c73ed24fd19934ab1f93db7061e6b2b9df4.zip"
     },
     "Handler": "get-product.handler",
     "Role": {
@@ -119,7 +119,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "ProductServiceStack/getProduct/Resource",
-    "aws:asset:path": "asset.b94c6360ebaf1e1162eab06a84eec526e62afd9ea71af53596420414730ff9cb",
+    "aws:asset:path": "asset.839fbda59db47c5b0f10d31f1f2e6c73ed24fd19934ab1f93db7061e6b2b9df4",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
