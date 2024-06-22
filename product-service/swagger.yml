@@ -1,0 +1,112 @@
+openapi: 3.0.1
+info:
+  title: Product Service API
+  description: This is an API for managing products.
+  version: 1.0.0
+servers:
+  - url: https://1pcdcu2oob.execute-api.eu-west-1.amazonaws.com/prod
+    description: Development server
+    variables:
+      restapi_id:
+        default: 1pcdcu2oob
+      region:
+        default: eu-west-1
+paths:
+  /products:
+    get:
+      summary: Get list of products
+      operationId: getProductsList
+      responses:
+        '200':
+          description: A list of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+      x-amazon-apigateway-integration:
+        uri: arn:aws:apigateway:{region}:lambda:path/2015-03-31/functions/arn:aws:lambda:{region}:{account_id}:function:getProductsList/invocations
+        httpMethod: POST
+        type: aws_proxy
+        responses: {}
+  /product/{id}:
+    get:
+      summary: Get product by ID
+      operationId: getProduct
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: ID parameter is required
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: ID parameter is required
+        '404':
+          description: Product not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Product not found
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error
+      x-amazon-apigateway-integration:
+        uri: arn:aws:apigateway:{region}:lambda:path/2015-03-31/functions/arn:aws:lambda:{region}:{account_id}:function:getProduct/invocations
+        httpMethod: POST
+        type: aws_proxy
+        responses: {}
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "1"
+        title:
+          type: string
+          example: "Product_1"
+        price:
+          type: number
+          example: 10
+        description:
+          type: string
+          example: "Short Product Description1"
