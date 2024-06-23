@@ -40,6 +40,48 @@ paths:
         httpMethod: POST
         type: aws_proxy
         responses: {}
+    post:
+      summary: Create a new product
+      operationId: createProduct
+      requestBody:
+        description: Product object to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewProduct'
+      responses:
+        '201':
+          description: Product created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Missing or invalid required fields
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Missing or invalid required fields
+        '500':
+          description: Failed to create product
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to create product
+      x-amazon-apigateway-integration:
+        uri: arn:aws:apigateway:{region}:lambda:path/2015-03-31/functions/arn:aws:lambda:{region}:{account_id}:function:createProduct/invocations
+        httpMethod: POST
+        type: aws_proxy
+        responses: {}
   /product/{id}:
     get:
       summary: Get product by ID
@@ -110,3 +152,26 @@ components:
         description:
           type: string
           example: "Short Product Description1"
+        count:
+          type: integer
+          example: 100
+    NewProduct:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "New Product"
+        description:
+          type: string
+          example: "Description of the new product"
+        price:
+          type: number
+          example: 99.99
+        count:
+          type: integer
+          example: 100
+      required:
+        - title
+        - description
+        - price
+        - count
