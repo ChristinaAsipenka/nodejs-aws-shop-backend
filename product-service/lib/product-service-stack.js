@@ -18,6 +18,7 @@ class ProductServiceStack extends Stack {
 
     // Import the existing DynamoDB table
     const productsTable = dynamodb.Table.fromTableName(this, 'ProductsTable', productsTableName);
+    const stocksTable = dynamodb.Table.fromTableName(this, 'StocksTable', stocksTableName);
 
     const getProductsList = new lambda.Function(this, 'getProductsList', {
       runtime: lambda.Runtime.NODEJS_20_X,
@@ -25,6 +26,7 @@ class ProductServiceStack extends Stack {
       handler: 'get-products.handler',
       environment: {
         PRODUCTS_TABLE: productsTable.tableName,
+        STOCKS_TABLE: stocksTable.tableName,
       },
     });
 
@@ -34,6 +36,7 @@ class ProductServiceStack extends Stack {
       handler: 'get-product.handler',
       environment: {
         PRODUCTS_TABLE: productsTable.tableName,
+        STOCKS_TABLE: stocksTable.tableName,
       },
     });
 
@@ -42,8 +45,8 @@ class ProductServiceStack extends Stack {
       code: lambda.Code.fromAsset('product-service'),
       handler: 'create-product.handler',
       environment: {
-        PRODUCTS_TABLE: productsTable.tableName,
-        STOCKS_TABLE: stocksTableName.tableName,
+          PRODUCTS_TABLE: productsTable.tableName,
+          STOCKS_TABLE: stocksTable.tableName,
       },
     });
 

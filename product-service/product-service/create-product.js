@@ -26,12 +26,12 @@ exports.handler = async (event) => {
   };
 
   const paramsProduct = {
-    TableName: 'products',
+    TableName: process.env.PRODUCTS_TABLE,
     Item: newProduct,
   };
 
   const paramsStock = {
-    TableName: 'stocks',
+    TableName: process.env.STOCKS_TABLE,
     Item: {
       product_id: productId,
       count: count,

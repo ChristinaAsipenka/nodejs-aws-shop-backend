@@ -102,11 +102,12 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "71bb874034495c1a5ed724b0ceb62f76632b3d60180b60b2387bf98cd27b5f84.zip"
+     "S3Key": "4664366fe78ca4a3fdd732e3dac31ca364b9d67fdf8d4c497da69f741886363d.zip"
     },
     "Environment": {
      "Variables": {
-      "PRODUCTS_TABLE": "products"
+      "PRODUCTS_TABLE": "products",
+      "STOCKS_TABLE": "stocks"
      }
     },
     "Handler": "get-products.handler",
@@ -124,7 +125,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "ProductServiceStack/getProductsList/Resource",
-    "aws:asset:path": "asset.71bb874034495c1a5ed724b0ceb62f76632b3d60180b60b2387bf98cd27b5f84",
+    "aws:asset:path": "asset.4664366fe78ca4a3fdd732e3dac31ca364b9d67fdf8d4c497da69f741886363d",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -231,11 +232,12 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "71bb874034495c1a5ed724b0ceb62f76632b3d60180b60b2387bf98cd27b5f84.zip"
+     "S3Key": "4664366fe78ca4a3fdd732e3dac31ca364b9d67fdf8d4c497da69f741886363d.zip"
     },
     "Environment": {
      "Variables": {
-      "PRODUCTS_TABLE": "products"
+      "PRODUCTS_TABLE": "products",
+      "STOCKS_TABLE": "stocks"
      }
     },
     "Handler": "get-product.handler",
@@ -253,7 +255,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "ProductServiceStack/getProduct/Resource",
-    "aws:asset:path": "asset.71bb874034495c1a5ed724b0ceb62f76632b3d60180b60b2387bf98cd27b5f84",
+    "aws:asset:path": "asset.4664366fe78ca4a3fdd732e3dac31ca364b9d67fdf8d4c497da69f741886363d",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -360,11 +362,12 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "71bb874034495c1a5ed724b0ceb62f76632b3d60180b60b2387bf98cd27b5f84.zip"
+     "S3Key": "4664366fe78ca4a3fdd732e3dac31ca364b9d67fdf8d4c497da69f741886363d.zip"
     },
     "Environment": {
      "Variables": {
-      "PRODUCTS_TABLE": "products"
+      "PRODUCTS_TABLE": "products",
+      "STOCKS_TABLE": "stocks"
      }
     },
     "Handler": "create-product.handler",
@@ -382,7 +385,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "ProductServiceStack/createProduct/Resource",
-    "aws:asset:path": "asset.71bb874034495c1a5ed724b0ceb62f76632b3d60180b60b2387bf98cd27b5f84",
+    "aws:asset:path": "asset.4664366fe78ca4a3fdd732e3dac31ca364b9d67fdf8d4c497da69f741886363d",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }

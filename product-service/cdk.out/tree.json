@@ -16,6 +16,14 @@
               "version": "2.144.0"
             }
           },
+          "StocksTable": {
+            "id": "StocksTable",
+            "path": "ProductServiceStack/StocksTable",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_dynamodb.TableBase",
+              "version": "2.144.0"
+            }
+          },
           "getProductsList": {
             "id": "getProductsList",
             "path": "ProductServiceStack/getProductsList",
@@ -189,11 +197,12 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "71bb874034495c1a5ed724b0ceb62f76632b3d60180b60b2387bf98cd27b5f84.zip"
+                      "s3Key": "4664366fe78ca4a3fdd732e3dac31ca364b9d67fdf8d4c497da69f741886363d.zip"
                     },
                     "environment": {
                       "variables": {
-                        "PRODUCTS_TABLE": "products"
+                        "PRODUCTS_TABLE": "products",
+                        "STOCKS_TABLE": "stocks"
                       }
                     },
                     "handler": "get-products.handler",
@@ -390,11 +399,12 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "71bb874034495c1a5ed724b0ceb62f76632b3d60180b60b2387bf98cd27b5f84.zip"
+                      "s3Key": "4664366fe78ca4a3fdd732e3dac31ca364b9d67fdf8d4c497da69f741886363d.zip"
                     },
                     "environment": {
                       "variables": {
-                        "PRODUCTS_TABLE": "products"
+                        "PRODUCTS_TABLE": "products",
+                        "STOCKS_TABLE": "stocks"
                       }
                     },
                     "handler": "get-product.handler",
@@ -591,11 +601,12 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "71bb874034495c1a5ed724b0ceb62f76632b3d60180b60b2387bf98cd27b5f84.zip"
+                      "s3Key": "4664366fe78ca4a3fdd732e3dac31ca364b9d67fdf8d4c497da69f741886363d.zip"
                     },
                     "environment": {
                       "variables": {
-                        "PRODUCTS_TABLE": "products"
+                        "PRODUCTS_TABLE": "products",
+                        "STOCKS_TABLE": "stocks"
                       }
                     },
                     "handler": "create-product.handler",

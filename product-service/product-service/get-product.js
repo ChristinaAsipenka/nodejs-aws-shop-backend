@@ -7,7 +7,7 @@ const ddbDocClient = DynamoDBDocumentClient.from(client);
 const getProductById = async (id) => {
 
     const productParams = {
-        TableName: 'products',
+        TableName: process.env.PRODUCTS_TABLE,
         Key: { id }
     };
     const productData = await ddbDocClient.send(new GetCommand(productParams));
@@ -17,7 +17,7 @@ const getProductById = async (id) => {
     }
 
     const stockParams = {
-        TableName: 'stocks',
+        TableName: process.env.STOCKS_TABLE,
         Key: { product_id: id }
     };
     const stockData = await ddbDocClient.send(new GetCommand(stockParams));

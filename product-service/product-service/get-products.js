@@ -5,14 +5,15 @@ const client = new DynamoDBClient({ region: 'eu-west-1' });
 const ddbDocClient = DynamoDBDocumentClient.from(client);
 
 exports.handler = async (event) => {
+  console.log(process.env.PRODUCTS_TABLE);
   try {
     const productsParams = {
-        TableName: 'products',
+        TableName: process.env.PRODUCTS_TABLE,
       };
       const productsData = await ddbDocClient.send(new ScanCommand(productsParams));
   
       const stocksParams = {
-        TableName: 'stocks',
+        TableName: process.env.STOCKS_TABLE,
       };
       const stocksData = await ddbDocClient.send(new ScanCommand(stocksParams));
   
