@@ -9,7 +9,12 @@ exports.handler = async (event) => {
   const requestBody = JSON.parse(event.body);
   const { title, description, price, count } = requestBody;
 
-  if (!title || !description || !price || count === undefined || count < 0) {
+  if (
+    typeof title !== 'string' || title.trim() === '' ||
+    typeof description !== 'string' || description.trim() === '' ||
+    typeof price !== 'number' || !Number.isInteger(price) ||
+    typeof count !== 'number' || !Number.isInteger(count) || count < 0
+  ) {
     return {
       statusCode: 400,
       body: JSON.stringify({ message: 'Missing or invalid required fields' }),
