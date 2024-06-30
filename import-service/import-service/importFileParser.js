@@ -1,16 +1,15 @@
-//import { S3Event, S3Handler } from "aws-lambda";
 const {
   S3Client,
   GetObjectCommand,
   CopyObjectCommand,
   DeleteObjectCommand,
 } = require("@aws-sdk/client-s3");
-const csvParser = require("csv-parser");
+const { csvParser } = require("csv-parser");
 const { Readable } = require("stream");
 
 const s3 = new S3Client({ region:"us-east-1" });
 
-export const handler = async (event) => {
+exports.handler = async (event) => {
   const bucket = event.Records[0].s3.bucket.name;
   const key = event.Records[0].s3.object.key;
 
