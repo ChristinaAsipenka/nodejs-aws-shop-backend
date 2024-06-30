@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="tests" />
+    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="tests">
+      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.template.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.template.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/tree.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/lib/product-service-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/lib/product-service-stack.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,16 +39,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Projects/Study/nodejs-aws-shop-react",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/Study/nodejs-aws-shop-react&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="SwaggerCodegen">
       <option name="activeConfigurationType" value="FILE" />
@@ -76,6 +82,7 @@
       <workItem from="1718543198025" duration="128000" />
       <workItem from="1718543665739" duration="187000" />
       <workItem from="1718544429281" duration="9000" />
+      <workItem from="1719074042573" duration="93000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1718537749889</created>

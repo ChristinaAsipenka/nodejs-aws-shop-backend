@@ -1,11 +1,12 @@
-* Product Service contains configuration for 2 lambda functions
-* The getProductsList OR getProductsById lambda function returns a correct response (POINT1)
-* The [getProductsById](https://1pcdcu2oob.execute-api.eu-west-1.amazonaws.com/prod/product/1) AND [getProductsList](https://1pcdcu2oob.execute-api.eu-west-1.amazonaws.com/prod/products) lambda functions return a correct response code (POINT2)
-* Your own Frontend application is integrated with Product Service [(/products API)](https://d14t0or6u1vg0a.cloudfront.net/) and products from Product Service are represented on Frontend. AND POINT1 and POINT2 are done.
+* Task 4.1:  two database tables in DynamoDB are created, script to fill tables with test examples is written
+* Task 4.2: AWS CDK Stack is extended with data from database table and pass it to lambda’s environment variables section.
+The getProductsList lambda to return via GET /products request a list of products from the database (joined stocks and products tables) is integrated.
+Product model on FE side as a joined model of product and stock by productId.
+* Lambda function createProduct under the Product Service is created which will be triggered by the HTTP POST method.
+The requested URL is /products.
+This logic creates a new item in a Products table. [Link to test](https://1pcdcu2oob.execute-api.eu-west-1.amazonaws.com/prod/products)
+* Frontend application is integrated with Product Service [(/products API)](https://d14t0or6u1vg0a.cloudfront.net/) and products from Product Service are represented on Frontend.
 
-* 7.5 Swagger documentation is created for Product Service. This can be, for example, openapi.(json|yaml) added to the repository, that can be rendered by https://editor.swagger.io/
-* 7.5 Lambda handlers are covered by basic UNIT tests (NO infrastructure logic is needed to be covered)
-* 7.5 Lambda handlers (getProductsList, getProductsById) code is written not in 1 single module (file) and separated in codebase.
-* 7.5 Main error scenarios are handled by API ("Product not found" error).
+* Swagger documentation is updated for Product Service.
 
 100/100
