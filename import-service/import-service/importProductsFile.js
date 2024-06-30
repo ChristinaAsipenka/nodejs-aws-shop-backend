@@ -1,7 +1,6 @@
-import { S3 } from 'aws-sdk';
-const s3 = new S3();
+const s3 = require('aws-cdk-lib/aws-s3');
 
-export async function handler(event) {
+exports.handler = async (event) => {
     const fileName = event.queryStringParameters.name;
     const bucketName = process.env.BUCKET_NAME;
     const objectKey = `uploaded/${fileName}`;
@@ -12,11 +11,11 @@ export async function handler(event) {
         Expires: 3600
     };
 
-    const signedUrl = s3.getSignedUrl('putObject', params);
+    const signedUrl = new s3.getSignedUrl('putObject', params);
 
     return {
         statusCode: 200,
-        body: JSON.stringify({ signedUrl: signedUrl }),
+        body: JSON.stringify(signedUrl),
         headers: {
             "Access-Control-Allow-Headers": "Content-Type",
             "Access-Control-Allow-Methods": 'GET,POST,OPTIONS',
