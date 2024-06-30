@@ -1,43 +1,86 @@
-const cdk = require('aws-cdk-lib');
-const lambda = require('aws-cdk-lib/aws-lambda');
-const apigateway = require('aws-cdk-lib/aws-apigateway');
-const s3 = require('aws-cdk-lib/aws-s3');
-//const { Construct } = require('constructs');
+const { Stack } = require("aws-cdk-lib");
+const { aws_s3 } = require("aws-cdk-lib");
+const { Cors, LambdaIntegration, RestApi } = require("aws-cdk-lib/aws-apigateway");
+const lambda = require("aws-cdk-lib/aws-lambda");
+const { Runtime } = require("aws-cdk-lib/aws-lambda");
+const { NodejsFunction } = require("aws-cdk-lib/aws-lambda-nodejs");
+const { LambdaDestination } = require("aws-cdk-lib/aws-s3-notifications");
+const { Construct } = require("constructs");
 
-class ImportServiceStack extends cdk.Stack {
-  /**
-   *
-   * @param {Construct} scope
-   * @param {string} id
-   * @param {StackProps=} props
-   */
+class ImportServiceStack extends Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
 
-    const bucket = s3.Bucket.fromBucketName(this, 'ExistingBucket', 'aws-course-upload-bucket-ca');
+    const bucketName = "aws-course-upload-bucket-ca";
 
-    const importProductsFunction = new lambda.Function(this, 'importProductsFunction', {
-      runtime: lambda.Runtime.NODEJS_20_X,
-      handler: 'importProductsFile.handler',
-      code: lambda.Code.fromAsset('import-service'),
-      environment: {
-        BUCKET_NAME: bucket.bucketName,
+    const bucket = aws_s3.Bucket.fromBucketName(
+      this,
+      "ImportServiceBucket",
+      bucketName
+    );
+
+    const api = new RestApi(this, "ImportProductsRestAPI", {
+      restApiName: "ImportProductsRestAPI",
+      deployOptions: {
+        stageName: 'prod',
+      },
+      defaultCorsPreflightOptions: {
+        allowOrigins: Cors.ALL_ORIGINS,
+        allowMethods: Cors.ALL_METHODS,
+        allowHeaders: [
+          "Content-Type",
+          "X-Amz-Date",
+          "Authorization",
+          "X-Api-Key",
+          "X-Amz-Security-Token",
+        ],
       },
     });
 
-    bucket.grantReadWrite(importProductsFunction);
+    const importProductsLambda = new NodejsFunction(
+      this,
+      "ImportProductsLambda",
+      {
+        runtime: Runtime.NODEJS_20_X,
+        code: lambda.Code.fromAsset("import-service"),
+        handler: "importProductsFile.handler",
+        environment: {
+          BUCKET_NAME: bucket.bucketName,
+        },
+      }
+    );
 
-    const api = new apigateway.RestApi(this, 'importProductsApi', {
-      restApiName: 'Import Products Service',
-      description: 'This service imports products.',
-    });
+    const parseProductsLambda = new NodejsFunction(
+      this,
+      "ParseProductsLambda",
+      {
+        runtime: Runtime.NODEJS_20_X,
+        code: lambda.Code.fromAsset("import-service"),
+        handler: "importFileParser.handler",
+        environment: {
+          BUCKET_NAME: bucket.bucketName,
+        },
+      }
+    );
 
-    const importIntegration = new apigateway.LambdaIntegration(importProductsFunction);
+    bucket.grantPut(importProductsLambda);
+    bucket.grantReadWrite(importProductsLambda);
 
-    api.root.addResource('import').addMethod('GET', importIntegration);
+    bucket.grantPut(parseProductsLambda);
+    bucket.grantReadWrite(parseProductsLambda);
+    bucket.grantDelete(parseProductsLambda);
 
-    new cdk.CfnOutput(this, 'ApiEndpoint', {
-      value: api.url,
+    const importProductsResource = api.root.addResource("import");
+
+    const importProductsIntegration = new LambdaIntegration(
+      importProductsLambda
+    );
+
+    importProductsResource.addMethod("GET", importProductsIntegration);
+
+    const notification = new LambdaDestination(parseProductsLambda);
+    bucket.addEventNotification(aws_s3.EventType.OBJECT_CREATED, notification, {
+      prefix: "uploaded/",
     });
   }
 }

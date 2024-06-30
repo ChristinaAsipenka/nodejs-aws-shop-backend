@@ -1,26 +1,41 @@
-const s3 = require('aws-cdk-lib/aws-s3');
+const { PutObjectCommand, S3Client } = require("@aws-sdk/client-s3");
+const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
+
+const s3Client = new S3Client({});
 
 exports.handler = async (event) => {
-    const fileName = event.queryStringParameters.name;
-    const bucketName = process.env.BUCKET_NAME;
-    const objectKey = `uploaded/${fileName}`;
+  const bucketName = process.env.BUCKET_NAME;
 
-    const params = {
-        Bucket: bucketName,
-        Key: objectKey,
-        Expires: 3600
-    };
+  const fileName = event.queryStringParameters?.name;
 
-    const signedUrl = new s3.getSignedUrl('putObject', params);
+  if(!fileName)  return {
+    statusCode: 400,
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods:": "POST,GET,PUT,DELETE,OPTIONS",
+    },
+    body: JSON.stringify({ message: "Parameter FileName is missing" }),
+  };
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify(signedUrl),
-        headers: {
-            "Access-Control-Allow-Headers": "Content-Type",
-            "Access-Control-Allow-Methods": 'GET,POST,OPTIONS',
-            "Access-Control-Allow-Origin": '*',
-            "Content-Type": "application/json"
-        }
-    };
-}
+  const signedUrl = await getSignedUrl(
+    s3Client,
+    new PutObjectCommand({
+      ContentType: "text/csv",
+      Bucket: bucketName,
+      Key: `uploaded/${fileName}`,
+    }),
+    { expiresIn: 300 }
+  );
+
+  return  {
+    statusCode: 200,
+    headers: {
+      "Content-Type": "text/plain",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST,GET,PUT,DELETE,OPTIONS",
+    },
+    body: JSON.stringify(signedUrl),
+  };;
+};
