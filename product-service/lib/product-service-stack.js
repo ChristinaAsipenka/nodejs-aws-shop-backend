@@ -40,6 +40,7 @@ class ProductServiceStack extends Stack {
     productsTable.grantReadWriteData(catalogBatchProcess);
     stocksTable.grantReadWriteData(catalogBatchProcess);
     catalogItemsQueue.grantConsumeMessages(catalogBatchProcess);
+    catalogItemsQueue.grantSendMessages(catalogBatchProcess);
 
     const eventSource = new eventSources.SqsEventSource(catalogItemsQueue, {
       batchSize: 5,

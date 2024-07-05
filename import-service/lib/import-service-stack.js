@@ -73,6 +73,8 @@ class ImportServiceStack extends Stack {
         bucket.grantRead(parseProductsLambda);
         bucket.grantDelete(parseProductsLambda);
 
+        queue.grantSendMessages(parseProductsLambda);
+
         const importProductsResource = api.root.addResource("import");
 
         const importProductsIntegration = new LambdaIntegration(
