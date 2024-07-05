@@ -5,13 +5,16 @@ const {
   DeleteObjectCommand,
 } = require("@aws-sdk/client-s3");
 const csv = require("csv-parser");
+const AWS = require("aws-sdk");
 const { Readable } = require("stream");
 
 const s3 = new S3Client({ region:"eu-west-1" });
+const sqs = new AWS.SQS;
 
 exports.handler = async (event) => {
   const bucket = event.Records[0].s3.bucket.name;
   const key = event.Records[0].s3.object.key;
+  const catalogItemsQueueUrl = process.env.CATALOG_ITEMS_QUEUE_URL;
 
   const params = {
     Bucket: bucket,
@@ -32,7 +35,17 @@ exports.handler = async (event) => {
           rtrim: true 
         }
       ))
-        .on("data", (data) => {
+        .on("data", async (data) => {
+          try {
+            const messageParams = {
+              QueueUrl: catalogItemsQueueUrl,
+              MessageBody: JSON.stringify(data),
+            };
+            await sqs.sendMessage(messageParams);
+            console.log("Message sent to SQS:", data);
+          } catch (error) {
+            console.error("Error sending message to SQS:", error);
+          }
           console.log("Record: ", data);
         })
         .on("end", async () => {

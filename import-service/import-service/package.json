@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "aws-sdk": "^2.1654.0",
     "csv-parser": "^3.0.0"
   }
 }

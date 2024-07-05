@@ -1,7 +1,9 @@
-const { Stack, Duration, CfnOutput } = require('aws-cdk-lib');
+const { Stack, Duration } = require('aws-cdk-lib');
 const lambda = require('aws-cdk-lib/aws-lambda');
 const apigateway = require('aws-cdk-lib/aws-apigateway');
 const dynamodb = require('aws-cdk-lib/aws-dynamodb');
+const sqs = require('aws-cdk-lib/aws-sqs');
+const eventSources = require('aws-cdk-lib/aws-lambda-event-sources');
 
 class ProductServiceStack extends Stack {
   /**
@@ -16,9 +18,33 @@ class ProductServiceStack extends Stack {
     const productsTableName = 'products';
     const stocksTableName = 'stocks';
 
-    // Import the existing DynamoDB table
     const productsTable = dynamodb.Table.fromTableName(this, 'ProductsTable', productsTableName);
     const stocksTable = dynamodb.Table.fromTableName(this, 'StocksTable', stocksTableName);
+
+    const catalogItemsQueue = new sqs.Queue(this, 'CatalogItemsQueue', {
+      queueName: 'CatalogItemsQueue',
+      visibilityTimeout: Duration.seconds(30),
+      receiveMessageWaitTimeSeconds: 20,
+    });
+
+    const catalogBatchProcess = new lambda.Function(this, 'catalogBatchProcess', {
+      runtime: lambda.Runtime.NODEJS_20_X,
+      code: lambda.Code.fromAsset('product-service'),
+      handler: 'catalog-batch-process.handler',
+      environment: {
+        PRODUCTS_TABLE: productsTable.tableName,
+        STOCKS_TABLE: stocksTable.tableName,
+      },
+    });
+
+    productsTable.grantReadWriteData(catalogBatchProcess);
+    stocksTable.grantReadWriteData(catalogBatchProcess);
+    catalogItemsQueue.grantConsumeMessages(catalogBatchProcess);
+
+    const eventSource = new eventSources.SqsEventSource(catalogItemsQueue, {
+      batchSize: 5,
+    });
+    catalogBatchProcess.addEventSource(eventSource);
 
     const getProductsList = new lambda.Function(this, 'getProductsList', {
       runtime: lambda.Runtime.NODEJS_20_X,
@@ -45,8 +71,8 @@ class ProductServiceStack extends Stack {
       code: lambda.Code.fromAsset('product-service'),
       handler: 'create-product.handler',
       environment: {
-          PRODUCTS_TABLE: productsTable.tableName,
-          STOCKS_TABLE: stocksTable.tableName,
+        PRODUCTS_TABLE: productsTable.tableName,
+        STOCKS_TABLE: stocksTable.tableName,
       },
     });
 
