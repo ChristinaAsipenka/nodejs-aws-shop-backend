@@ -4,10 +4,10 @@ const {
   CopyObjectCommand,
   DeleteObjectCommand,
 } = require("@aws-sdk/client-s3");
-const { csvParser } = require("csv-parser");
+const csv = require("csv-parser");
 const { Readable } = require("stream");
 
-const s3 = new S3Client({ region:"us-east-1" });
+const s3 = new S3Client({ region:"eu-west-1" });
 
 exports.handler = async (event) => {
   const bucket = event.Records[0].s3.bucket.name;
@@ -24,7 +24,14 @@ exports.handler = async (event) => {
 
   if (Body instanceof Readable) {
     await new Promise((resolve, reject) => {
-      Body.pipe(csvParser())
+      Body.pipe(csv({ 
+          columns: true, 
+          relax_quotes: true, 
+          escape: '\\', 
+          ltrim: true, 
+          rtrim: true 
+        }
+      ))
         .on("data", (data) => {
           console.log("Record: ", data);
         })
