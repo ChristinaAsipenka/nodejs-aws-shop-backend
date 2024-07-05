@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="tests">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/bin/import-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/cdk.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/import-service/importProductsFile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/jest.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/lib/import-service-stack.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import-service/test/import-service.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/products.csv" afterDir="false" />
-    </list>
+    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="init" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="task-6" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,7 +33,8 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
+  <component name="PropertiesComponent">
+    {
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -57,7 +42,7 @@
     &quot;last_opened_file_path&quot;: &quot;D:/Projects/Study/nodejs-aws-shop-react&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  <component name="PropertiesComponent">{
+    <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -67,7 +52,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-}</component>
+    }
+  </component>
   <component name="RunManager">
     <configuration default="true" type="SwaggerCodegen">
       <option name="activeConfigurationType" value="FILE" />
