@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/99c08097940d988b6c6cb50b4fe6a1d0178380824ae9667cc9f643c7e9a88496.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f31595b0dbfd10d3cc6b10c29fcb290d17d56fd4628c9a3836d8749badcc8db9.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -38,6 +38,18 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "CatalogItemsQueueB3B6CE23"
+          }
+        ],
+        "/ProductServiceStack/CreateProductTopic/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CreateProductTopicE4CD9217"
+          }
+        ],
+        "/ProductServiceStack/CreateProductTopic/krystinabutko@gmail.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CreateProductTopickrystinabutkogmailcomFAFC41A1"
           }
         ],
         "/ProductServiceStack/catalogBatchProcess/ServiceRole/Resource": [

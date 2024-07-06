@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="feat: SQS">
+    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="feat: create records in dynamoDB">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/import-service/import-service/importFileParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/import-service/importFileParser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/import-service/lib/import-service-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/lib/import-service-stack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.template.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.template.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/tree.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/lib/product-service-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/lib/product-service-stack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products.csv" beforeDir="false" afterPath="$PROJECT_DIR$/products.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/product-service/catalog-batch-process.js" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/product-service/catalog-batch-process.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720195269999</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: create records in dynamoDB">
+      <created>1720208927315</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720208927315</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +144,7 @@
     <MESSAGE value="tests" />
     <MESSAGE value="init" />
     <MESSAGE value="feat: SQS" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: SQS" />
+    <MESSAGE value="feat: create records in dynamoDB" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: create records in dynamoDB" />
   </component>
 </project>

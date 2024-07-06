@@ -49,6 +49,58 @@
               "version": "2.144.0"
             }
           },
+          "CreateProductTopic": {
+            "id": "CreateProductTopic",
+            "path": "ProductServiceStack/CreateProductTopic",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "ProductServiceStack/CreateProductTopic/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::SNS::Topic",
+                  "aws:cdk:cloudformation:props": {
+                    "topicName": "CreateProductTopic"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_sns.CfnTopic",
+                  "version": "2.144.0"
+                }
+              },
+              "krystinabutko@gmail.com": {
+                "id": "krystinabutko@gmail.com",
+                "path": "ProductServiceStack/CreateProductTopic/krystinabutko@gmail.com",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "ProductServiceStack/CreateProductTopic/krystinabutko@gmail.com/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::SNS::Subscription",
+                      "aws:cdk:cloudformation:props": {
+                        "endpoint": "krystinabutko@gmail.com",
+                        "protocol": "email",
+                        "topicArn": {
+                          "Ref": "CreateProductTopicE4CD9217"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_sns.CfnSubscription",
+                      "version": "2.144.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_sns.Subscription",
+                  "version": "2.144.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_sns.Topic",
+              "version": "2.144.0"
+            }
+          },
           "catalogBatchProcess": {
             "id": "catalogBatchProcess",
             "path": "ProductServiceStack/catalogBatchProcess",
@@ -193,6 +245,13 @@
                                       "Arn"
                                     ]
                                   }
+                                },
+                                {
+                                  "Action": "sns:Publish",
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Ref": "CreateProductTopicE4CD9217"
+                                  }
                                 }
                               ],
                               "Version": "2012-10-17"
@@ -258,12 +317,15 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "ebaa7d08410f9b4369414fc55d0d0ffc3631df450c4e55fdfe5d3bb0540bbdd1.zip"
+                      "s3Key": "e3e53fe8e44d71fb938184a8c7098d6301995e328233bc2fc846cc8437e89e5f.zip"
                     },
                     "environment": {
                       "variables": {
                         "PRODUCTS_TABLE": "products",
-                        "STOCKS_TABLE": "stocks"
+                        "STOCKS_TABLE": "stocks",
+                        "CREATE_PRODUCT_TOPIC_ARN": {
+                          "Ref": "CreateProductTopicE4CD9217"
+                        }
                       }
                     },
                     "handler": "catalog-batch-process.handler",
@@ -493,7 +555,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "ebaa7d08410f9b4369414fc55d0d0ffc3631df450c4e55fdfe5d3bb0540bbdd1.zip"
+                      "s3Key": "e3e53fe8e44d71fb938184a8c7098d6301995e328233bc2fc846cc8437e89e5f.zip"
                     },
                     "environment": {
                       "variables": {
@@ -695,7 +757,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "ebaa7d08410f9b4369414fc55d0d0ffc3631df450c4e55fdfe5d3bb0540bbdd1.zip"
+                      "s3Key": "e3e53fe8e44d71fb938184a8c7098d6301995e328233bc2fc846cc8437e89e5f.zip"
                     },
                     "environment": {
                       "variables": {
@@ -897,7 +959,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "ebaa7d08410f9b4369414fc55d0d0ffc3631df450c4e55fdfe5d3bb0540bbdd1.zip"
+                      "s3Key": "e3e53fe8e44d71fb938184a8c7098d6301995e328233bc2fc846cc8437e89e5f.zip"
                     },
                     "environment": {
                       "variables": {

@@ -1,21 +1,21 @@
-const { randomUUID } = require('crypto');
 const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
 const { DynamoDBDocumentClient, PutCommand } = require('@aws-sdk/lib-dynamodb');
-
+const { SNSClient, PublishCommand } = require('@aws-sdk/client-sns');
 const client = new DynamoDBClient({ region: 'eu-west-1' });
 const ddbDocClient = DynamoDBDocumentClient.from(client);
+const snsClient = new SNSClient({ region: 'eu-west-1' });
 
 exports.handler = async (event) => {
     for (const record of event.Records) {
-        const requestBody = JSON.parse(record.body);
-        const { title, description, price, count } = requestBody;
+        const body = JSON.parse(record.body);
+        const { title, description, price, count } = body;
 
         if (!title || !description || !price || count === undefined || count < 0) {
-            console.error('Missing or invalid required fields:', requestBody);
-            continue; // Skip invalid records
+            console.error('Missing or invalid required fields');
+            continue;
         }
 
-        const productId = randomUUID();
+        const productId = body.id || require('crypto').randomUUID();
 
         const newProduct = {
             id: productId,
@@ -41,14 +41,24 @@ exports.handler = async (event) => {
             await ddbDocClient.send(new PutCommand(paramsProduct));
             await ddbDocClient.send(new PutCommand(paramsStock));
 
-            console.log('Product created successfully:', newProduct);
+            const productResponse = {
+                id: productId,
+                count: count,
+                price: price,
+                title: title,
+                description: description,
+            };
+
+            // Publish a message to the SNS topic
+            const messageParams = {
+                TopicArn: process.env.CREATE_PRODUCT_TOPIC_ARN,
+                Message: JSON.stringify(productResponse),
+            };
+            await snsClient.send(new PublishCommand(messageParams));
+
+            console.log('Product created and message sent to SNS:', productResponse);
         } catch (error) {
-            console.error('Failed to create product:', error);
+            console.error('Failed to create product or send SNS message:', error);
         }
     }
-
-    return {
-        statusCode: 200,
-        body: JSON.stringify({ message: 'Batch process completed' }),
-    };
 };
