@@ -4,6 +4,7 @@
     "@aws-sdk/client-sqs": "^3.609.0",
     "@aws-sdk/lib-dynamodb": "^3.602.0",
     "aws-sdk": "^2.1646.0",
+    "aws-sdk-mock": "^6.0.4",
     "csv-parser": "^3.0.0"
   }
 }

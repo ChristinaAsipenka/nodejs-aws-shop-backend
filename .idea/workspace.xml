@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="feat: create records in dynamoDB">
+    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="feat: additional subscription with filter">
+      <change afterPath="$PROJECT_DIR$/product-service/test/catalog-batch-process.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.template.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/ProductServiceStack.template.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/cdk.out/tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/cdk.out/tree.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/lib/product-service-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/lib/product-service-stack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/product-service/catalog-batch-process.js" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/product-service/catalog-batch-process.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +121,21 @@
       <option name="project" value="LOCAL" />
       <updated>1720208927315</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: additional subscription with filter">
+      <created>1720255427606</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720255427606</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: additional subscription with filter">
+      <created>1720255447384</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720255447384</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +159,7 @@
     <MESSAGE value="init" />
     <MESSAGE value="feat: SQS" />
     <MESSAGE value="feat: create records in dynamoDB" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: create records in dynamoDB" />
+    <MESSAGE value="feat: additional subscription with filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: additional subscription with filter" />
   </component>
 </project>

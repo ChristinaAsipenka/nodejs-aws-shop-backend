@@ -48,8 +48,7 @@ exports.handler = async (event) => {
                 title: title,
                 description: description,
             };
-
-            // Publish a message to the SNS topic
+            
             const messageParams = {
                 TopicArn: process.env.CREATE_PRODUCT_TOPIC_ARN,
                 Message: JSON.stringify(productResponse),
