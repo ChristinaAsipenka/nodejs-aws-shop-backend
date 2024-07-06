@@ -27,7 +27,6 @@ class ProductServiceStack extends Stack {
       topicName: 'CreateProductTopic',
     });
 
-    // Add email subscription to the SNS topic
     createProductTopic.addSubscription(new subscriptions.EmailSubscription('krystinabutko@gmail.com'));
 
     createProductTopic.addSubscription(new subscriptions.EmailSubscription('christinaasipenka@gmail.com', {
@@ -55,13 +54,11 @@ class ProductServiceStack extends Stack {
     catalogItemsQueue.grantConsumeMessages(catalogBatchProcess);
     createProductTopic.grantPublish(catalogBatchProcess);
 
-    // Add SQS event source to the Lambda function
     const eventSource = new eventSources.SqsEventSource(catalogItemsQueue, {
       batchSize: 5,
     });
     catalogBatchProcess.addEventSource(eventSource);
 
-    // Other Lambda functions and API Gateway setup
     const getProductsList = new lambda.Function(this, 'getProductsList', {
       runtime: lambda.Runtime.NODEJS_20_X,
       code: lambda.Code.fromAsset('product-service'),
