@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/2ded6d6a3c2a4d0d27de9377ec2016634c68dd3305c93cfa43492889a35ade0a.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f31595b0dbfd10d3cc6b10c29fcb290d17d56fd4628c9a3836d8749badcc8db9.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -34,6 +34,48 @@
         "ProductServiceStack.assets"
       ],
       "metadata": {
+        "/ProductServiceStack/CatalogItemsQueue/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CatalogItemsQueueB3B6CE23"
+          }
+        ],
+        "/ProductServiceStack/CreateProductTopic/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CreateProductTopicE4CD9217"
+          }
+        ],
+        "/ProductServiceStack/CreateProductTopic/krystinabutko@gmail.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CreateProductTopickrystinabutkogmailcomFAFC41A1"
+          }
+        ],
+        "/ProductServiceStack/catalogBatchProcess/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "catalogBatchProcessServiceRole274D33CD"
+          }
+        ],
+        "/ProductServiceStack/catalogBatchProcess/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "catalogBatchProcessServiceRoleDefaultPolicy8FC58026"
+          }
+        ],
+        "/ProductServiceStack/catalogBatchProcess/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "catalogBatchProcessDC6613DA"
+          }
+        ],
+        "/ProductServiceStack/catalogBatchProcess/SqsEventSource:ProductServiceStackCatalogItemsQueue9C0AFB6C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "catalogBatchProcessSqsEventSourceProductServiceStackCatalogItemsQueue9C0AFB6CC30F6393"
+          }
+        ],
         "/ProductServiceStack/getProductsList/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",

@@ -1,5 +1,5 @@
-id,"description","price","title"
-e7369df4-8675-4373-b71e-2cab3b9029a2,"Product Description","99.99","Product Check Count"
-a63e96af-5f0a-4b8c-9021-c4da5039459a,"Product Description","99.99","Product Name Postman"
-32beb5aa-43bf-48b5-92ce-404bd177b5f4,"Greate Book","20","1984"
-123e4567-e89b-12d3-a456-426614174000,"Description for product 1","100","Product 1"
+description,price,title,count
+Product Description,99.99,Product Check Count,50
+Product Description,99.99,Product Name Postman,52
+Greate Book,20,1984,54
+Description for product 1,100,Product 1,58

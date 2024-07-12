@@ -5,7 +5,7 @@ const client = new DynamoDBClient({ region: 'eu-west-1' });
 const ddbDocClient = DynamoDBDocumentClient.from(client);
 
 exports.handler = async (event) => {
-  console.log(process.env.PRODUCTS_TABLE);
+
   try {
     const productsParams = {
         TableName: process.env.PRODUCTS_TABLE,
