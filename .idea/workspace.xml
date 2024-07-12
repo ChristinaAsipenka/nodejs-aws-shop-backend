@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="feat: additional subscription with filter">
-      <change afterPath="$PROJECT_DIR$/product-service/test/catalog-batch-process.test.js" afterDir="false" />
+    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="gitignore">
+      <change afterPath="$PROJECT_DIR$/authorization-service/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/autorization-service/basicAuthorizer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/bin/authorization-service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/cdk.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/lib/authorization-service-stack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/test/authorization-service.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/product-service/catalog-batch-process.js" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/product-service/catalog-batch-process.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,16 +47,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Projects/Study/nodejs-aws-shop-react",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/Study/nodejs-aws-shop-react&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="SwaggerCodegen">
       <option name="activeConfigurationType" value="FILE" />
@@ -135,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720255447384</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="gitignore">
+      <created>1720795521885</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720795521885</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +173,7 @@
     <MESSAGE value="feat: SQS" />
     <MESSAGE value="feat: create records in dynamoDB" />
     <MESSAGE value="feat: additional subscription with filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: additional subscription with filter" />
+    <MESSAGE value="gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
   </component>
 </project>
