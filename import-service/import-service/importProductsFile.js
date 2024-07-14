@@ -32,10 +32,10 @@ exports.handler = async (event) => {
     statusCode: 200,
     headers: {
       "Content-Type": "text/plain",
-      "Access-Control-Allow-Headers": "Content-Type",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST,GET,PUT,DELETE,OPTIONS",
+      "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
     },
     body: JSON.stringify(signedUrl),
-  };;
+  };
 };

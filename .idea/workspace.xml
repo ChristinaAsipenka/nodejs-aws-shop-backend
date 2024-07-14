@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="gitignore">
-      <change afterPath="$PROJECT_DIR$/authorization-service/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/autorization-service/basicAuthorizer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/bin/authorization-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/cdk.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/jest.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/lib/authorization-service-stack.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/test/authorization-service.test.js" afterDir="false" />
+    <list default="true" id="194ac3a1-5296-473e-8925-7186b279ca66" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/authorization-service/authorization-service/basicAuthorizer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/authorization-service/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authorization-service/authorization-service/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-service/autorization-service/basicAuthorizer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-service/lib/authorization-service-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-service/lib/authorization-service-stack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-service/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authorization-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/authorization-service/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/import-service/importProductsFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/import-service/importProductsFile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/import-service/lib/import-service-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/import-service/lib/import-service-stack.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720795521885</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="init">
+      <created>1720807675954</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720807675954</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,11 +174,11 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="headers adjustment" />
     <MESSAGE value="tests" />
-    <MESSAGE value="init" />
     <MESSAGE value="feat: SQS" />
     <MESSAGE value="feat: create records in dynamoDB" />
     <MESSAGE value="feat: additional subscription with filter" />
     <MESSAGE value="gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
 </project>
