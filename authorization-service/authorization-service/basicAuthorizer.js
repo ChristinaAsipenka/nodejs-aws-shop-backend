@@ -10,20 +10,13 @@ exports.handler = async (event) => {
         return policy;
     }
     try {
-        console.log('authorizationToken', event.authorizationToken);
         const encodedCreds = event.authorizationToken.split(' ')[1];
-        const buff = Buffer.from(encodedCreds, 'base64');
-        const plainCreds = buff.toString('utf-8').split(':');
-        console.log('plainCreds', plainCreds);
-        const [userName, password] = plainCreds;
-
-        const storedUserPassword = process.env[userName];
-        console.log('storedUserPassword', storedUserPassword);
-
-        const effect = !storedUserPassword || storedUserPassword !== password ? 'Deny' : 'Allow';
-        console.log('effect', effect);
-        console.log('resource', event.methodArn);
-        policy = generatePolicy(encodedCreds, effect, event.methodArn);
+        const buffer = Buffer.from(encodedCreds, 'base64');
+        const clientCreds = buffer.toString('utf-8').split(':');
+        const [userName, password] = clientCreds;
+        const envUserPassword = process.env[userName];
+        const result = !envUserPassword || envUserPassword !== password ? 'Deny' : 'Allow';
+        policy = generatePolicy(encodedCreds, result, event.methodArn);
         return policy;
     } catch (error) {
         policy = generatePolicy('Unauthorized user', 'Deny', event.methodArn);
@@ -31,7 +24,7 @@ exports.handler = async (event) => {
     }
 };
 
-const generatePolicy = (principalId, effect, resource) => {
+const generatePolicy = (principalId, result, resource) => {
     return {
         principalId,
         policyDocument: {
@@ -39,7 +32,7 @@ const generatePolicy = (principalId, effect, resource) => {
             Statement: [
                 {
                     Action: 'execute-api:Invoke',
-                    Effect: effect,
+                    Effect: result,
                     Resource: resource
                 }
             ]
